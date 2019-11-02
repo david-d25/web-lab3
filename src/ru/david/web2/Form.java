@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 public class Form {
     private Float x = null;
     private float y;
-    private float r = 1;
+    private float r;
 
     public Float getX() {
         return x;
