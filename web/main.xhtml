@@ -34,7 +34,7 @@
 
             <div class="controls">
                 <h:form>
-                    <p:panel styleClass="panel">
+                    <p:panel styleClass="panel flex-column-inner">
                         <label class="panel__title">Координата X</label>
                         <p:selectBooleanCheckbox itemLabel="-5" onchange="this.checked ? selectedX(-5) : deselectedX(-5)"/>
                         <p:selectBooleanCheckbox itemLabel="-4" onchange="this.checked ? selectedX(-4) : deselectedX(-4)"/>
@@ -58,7 +58,7 @@
 
                     <p:panel styleClass="panel">
                         <label class="panel__title">R</label>
-                        <p:selectOneRadio value="#{form.r}" required="true" onchange="onRChanged(this.value)">
+                        <p:selectOneRadio value="#{form.r}" required="true" onchange="onRChanged(this.value)" styleClass="margin-auto">
                             <f:selectItem itemValue="1" itemLabel="1"/>
                             <f:selectItem itemValue="1.5" itemLabel="1.5"/>
                             <f:selectItem itemValue="2" itemLabel="2"/>

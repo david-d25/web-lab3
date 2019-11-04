@@ -20,6 +20,11 @@ input[type="text"] {
   padding: 15px;
 }
 
+.flex-column-inner > div {
+  display: flex;
+  flex-direction: column;
+}
+
 .hidden {
   display: none;
 }
@@ -52,6 +57,7 @@ input[type="text"] {
 .panel__title {
   text-align: center;
   display: inline-block;
+  margin-bottom: 10px;
   width: 100%;
 }
 
@@ -100,11 +106,15 @@ input[type="text"] {
 }
 
 .graph-view-wr {
-  flex: 2;
+  flex: 3;
+}
+
+.margin-auto {
+  margin: auto;
 }
 
 .controls {
-  flex: 1;
+  flex: 2;
 }
 
 @media (max-width: 1080px) {
