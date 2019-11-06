@@ -1,4 +1,4 @@
-package ru.david.web2;
+package ru.david.web2.beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

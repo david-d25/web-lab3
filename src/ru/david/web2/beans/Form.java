@@ -1,12 +1,12 @@
-package ru.david.web2;
+package ru.david.web2.beans;
 
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class Form {
-    private Float x = null;
-    private float y;
-    private float r;
+    private Float x;
+    private Float y;
+    private Float r;
 
     public Float getX() {
         return x;
@@ -16,19 +16,19 @@ public class Form {
         this.x = x;
     }
 
-    public float getY() {
+    public Float getY() {
         return y;
     }
 
-    public void setY(float y) {
+    public void setY(Float y) {
         this.y = y;
     }
 
-    public float getR() {
+    public Float getR() {
         return r;
     }
 
-    public void setR(float r) {
+    public void setR(Float r) {
         this.r = r;
     }
 }
