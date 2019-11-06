@@ -1,0 +1,20 @@
+.welcome {
+  display: flex;
+}
+
+.welcome__text {
+  font-family: "Comic Sans MS", serif;
+  margin-top: 30vh;
+  flex: 5;
+  text-align: center;
+  font-size: 36px;
+}
+
+.welcome__clock {
+  margin-top: 10vh;
+  flex: 4;
+}
+
+.clock {
+  filter: drop-shadow(0px 20px 15px rgba(0, 0, 0, 0.5));
+}
