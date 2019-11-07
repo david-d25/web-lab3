@@ -16,10 +16,18 @@
 
 <h:body>
 
-    <div class="header">
+    <div class="header_wr">
         <div class="container">
-            <div class="header__student-info">
-                Давтян Д. А., P3201, вариант 20113
+            <div class="header">
+                <div class="header__student-info">
+                    Давтян Д. А., P3201, вариант 20113
+                </div>
+
+                <div class="header__to_start_link">
+                    <h:form>
+                        <h:commandLink value="На стартовую" action="index?faces-redirect=true"/>
+                    </h:form>
+                </div>
             </div>
         </div>
     </div>
@@ -73,7 +81,7 @@
                                         value="Чикибамбони"
                                         id="submit-btn"
                                         onclick="return onSubmit();"
-                                        action="test"/>
+                                        action="#{form.process}"/>
                 </h:form>
             </div>
         </div>

@@ -17,10 +17,12 @@
 
 <h:body>
 
-    <div class="header">
+    <div class="header_wr">
         <div class="container">
-            <div class="header__student-info">
-                Давтян Д. А., P3201, вариант 20113
+            <div class="header">
+                <div class="header__student-info">
+                    Давтян Д. А., P3201, вариант 20113
+                </div>
             </div>
         </div>
     </div>
@@ -28,17 +30,28 @@
     <div class="content container">
         <div class="welcome">
             <div class="welcome__text">
-                <span>Д</span><span>о</span><span>б</span><span>р</span><span>о</span> <span>п</span><span>о</span><span>ж</span><span>а</span><span>л</span><span>о</span><span>в</span><span>а</span><span>т</span><span>ь</span></div>
+                <div class="text" id="text"></div>
+            </div>
             <div class="welcome__clock">
                 <div class="clock" id="clock"></div>
             </div>
         </div>
 
-        <div class="main_page_link">
-
+        <div class="main_page_link_wr">
+            <div class="main_page_link">
+                <h:form>
+                    <p:commandLink action="main?faces-redirect=true">
+                        <h:graphicImage value="resources/default/img/link_to_main.png"/>
+                        <h:graphicImage value="resources/default/img/link_to_main.png"/>
+                        <h:graphicImage value="resources/default/img/link_to_main.png"/>
+                        <h:graphicImage value="resources/default/img/link_to_main.png"/>
+                    </p:commandLink>
+                </h:form>
+            </div>
         </div>
     </div>
 
+    <h:outputScript library="default" name="scripts/funny-text.js"/>
     <h:outputScript library="default" name="scripts/clock.js"/>
     <h:outputScript library="default" name="scripts/index.js"/>
 </h:body>

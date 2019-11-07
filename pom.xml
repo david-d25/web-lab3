@@ -81,7 +81,7 @@
                     <username>${wildfly-username}</username>
                     <password>${wildfly-password}</password>
                     <filename>${project.artifactId}-${project.version}.war</filename>
-                    <name>lab2.war</name>
+                    <name>ROOT.war</name>
                 </configuration>
             </plugin>
             <plugin>

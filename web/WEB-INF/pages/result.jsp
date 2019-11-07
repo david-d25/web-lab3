@@ -1,4 +1,4 @@
-<%@ page import="ru.david.web2.Result" %>
+<%@ page import="ru.david.web2.beans.Result" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>

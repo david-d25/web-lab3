@@ -1,13 +1,20 @@
+body {
+  background: url("/resources/default/img/soviet_wallpapers.jpg") no-repeat;
+  background-size: cover;
+}
+
+.header_wr {
+  background: rgb(141, 63, 42)
+}
+
 .welcome {
   display: flex;
 }
 
 .welcome__text {
-  font-family: "Comic Sans MS", serif;
-  margin-top: 30vh;
   flex: 5;
+  margin-top: 12vh;
   text-align: center;
-  font-size: 36px;
 }
 
 .welcome__clock {
@@ -17,4 +24,170 @@
 
 .clock {
   filter: drop-shadow(0px 20px 15px rgba(0, 0, 0, 0.5));
+}
+
+.main_page_link_wr {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.main_page_link {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+}
+
+.main_page_link img {
+  width: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.main_page_link img:nth-child(1) {
+  animation: main-page-link-1 5s infinite linear;
+  transform-origin: 200px 0 -200px;
+}
+
+.main_page_link img:nth-child(2) {
+  animation: main-page-link-2 5s infinite linear;
+  transform-origin: 200px 0 -200px;
+}
+
+.main_page_link img:nth-child(3) {
+  animation: main-page-link-3 5s infinite linear;
+  transform-origin: 200px 0 -200px;
+}
+
+.main_page_link img:nth-child(4) {
+  animation: main-page-link-4 5s infinite linear;
+  transform-origin: 200px 0 -200px;
+}
+
+@keyframes main-page-link-1 {
+  0% {
+    transform: perspective(600px) rotateY(0deg);
+    filter: brightness(100%);
+    z-index: 3;
+  }
+
+  25% {
+    transform: perspective(600px) rotateY(90deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+
+  50% {
+    transform: perspective(600px) rotateY(180deg);
+    filter: brightness(0%);
+    z-index: 1;
+  }
+
+  75% {
+    transform: perspective(600px) rotateY(270deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+
+  100% {
+    transform: perspective(600px) rotateY(360deg);
+    filter: brightness(100%);
+    z-index: 3;
+  }
+}
+
+@keyframes main-page-link-2 {
+  0% {
+    transform: perspective(600px) rotateY(90deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+
+  25% {
+    transform: perspective(600px) rotateY(180deg);
+    filter: brightness(0%);
+    z-index: 1;
+  }
+
+  50% {
+    transform: perspective(600px) rotateY(270deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+
+  75% {
+    transform: perspective(600px) rotateY(360deg);
+    filter: brightness(100%);
+    z-index: 3;
+  }
+
+  100% {
+    transform: perspective(600px) rotateY(450deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+}
+
+@keyframes main-page-link-3 {
+  0% {
+    transform: perspective(600px) rotateY(180deg);
+    filter: brightness(0%);
+    z-index: 1;
+  }
+
+  25% {
+    transform: perspective(600px) rotateY(270deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+
+  50% {
+    transform: perspective(600px) rotateY(360deg);
+    filter: brightness(100%);
+    z-index: 3;
+  }
+
+  75% {
+    transform: perspective(600px) rotateY(450deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+
+  100% {
+    transform: perspective(600px) rotateY(540deg);
+    filter: brightness(0%);
+    z-index: 1;
+  }
+}
+
+@keyframes main-page-link-4 {
+  0% {
+    transform: perspective(600px) rotateY(270deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+
+  25% {
+    transform: perspective(600px) rotateY(360deg);
+    filter: brightness(100%);
+    z-index: 3;
+  }
+
+  50% {
+    transform: perspective(600px) rotateY(450deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
+
+  75% {
+    transform: perspective(600px) rotateY(540deg);
+    filter: brightness(0%);
+    z-index: 1;
+  }
+
+  100% {
+    transform: perspective(600px) rotateY(630deg);
+    filter: brightness(20%);
+    z-index: 2;
+  }
 }

@@ -13,11 +13,24 @@ input[type="text"] {
   margin: auto;
 }
 
-.header {
+.header_wr {
   background: #3939b8;
   font-family: monospace;
   color: white;
   padding: 15px;
+}
+
+.header {
+  display: flex;
+}
+
+.header_wr .header a {
+  color: white;
+}
+
+.header__to_start_link {
+  margin-left: 100px;
+  text-decoration: none;
 }
 
 .flex-column-inner > div {
