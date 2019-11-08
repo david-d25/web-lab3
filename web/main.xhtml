@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>Топ лаба Давида ъууууууууууууууъ</title>
     <h:outputStylesheet library="default" name="styles/main.css"/>
+    <h:outputStylesheet library="default" name="styles/result.css"/>
 </h:head>
 
 <h:body>
@@ -83,6 +84,31 @@
                                         onclick="return onSubmit();"
                                         action="#{form.process}"/>
                 </h:form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="panel">
+                <div class="panel__title">Предыдущие 100 результатов</div>
+                <div class="panel__content">
+                    <table class="results">
+                        <tr>
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>R</th>
+                            <th>Попадание</th>
+                            <th>Время</th>
+                        </tr>
+                        <c:forEach var="result" items="#{results.getResults()}">
+                            <tr>
+                                <td>#{result.x}</td>
+                                <td>#{result.y}</td>
+                                <td>#{result.r}</td>
+                                <td>#{result.hit ? "Даааа" : "Нит"}</td>
+                                <td>#{result.timeFriendly(result.timestamp)}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

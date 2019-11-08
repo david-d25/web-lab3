@@ -5,9 +5,9 @@
 
   let canvasWrapper = document.getElementById("canvas-wrapper");
 
-  let yInput = document.getElementById("j_idt10:y");
-  let xHidden = document.getElementById("j_idt10:x-hidden");
-  let submitButton = document.getElementById("j_idt10:submit-btn");
+  let yInput = document.getElementById("j_idt14:y");
+  let xHidden = document.getElementById("j_idt14:x-hidden");
+  let submitButton = document.getElementById("j_idt14:submit-btn");
 
   let errMsgPanel = document.getElementById('err-msg');
   let graphPicker = new GraphPicker(canvasWrapper, 1000, 1000);

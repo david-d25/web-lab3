@@ -17,4 +17,29 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    
+    <context-param>
+        <param-name>jdbc-protocol-name</param-name>
+        <param-value>postgresql</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbc-host</param-name>
+        <param-value>localhost</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbc-port</param-name>
+        <param-value>5432</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbc-database</param-name>
+        <param-value>studs</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbc-user</param-name>
+        <param-value>s265472</param-value>
+    </context-param>
+    <context-param>
+        <param-name>jdbc-password</param-name>
+        <param-value>tpn064</param-value>
+    </context-param>
 </web-app>

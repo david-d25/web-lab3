@@ -53,12 +53,12 @@
       ctx.clearRect(0, 0, width, height);
 
       ctx.fillStyle = "#349eeb";
-      ctx.fillRect(0.1*width, 0.1*height, 0.4*width, 0.4*height);
+      ctx.fillRect(0.1*width, 0.5*height, 0.4*width, 0.4*height);
       ctx.beginPath();
-      ctx.mv(.1, .5);
-      ctx.ln(.5, .9);
-      ctx.ln(.5, .5);
-      ctx.arc(0.5*width, 0.5*height, .2*(width+height)/2, -0.5*Math.PI, 0);
+      ctx.mv(.5, .5);
+      ctx.ln(.5, .1);
+      ctx.ln(.9, .5);
+      ctx.arc(0.5*width, 0.5*height, .4*(width+height)/2, 0, Math.PI/2);
       ctx.fill();
 
       ctx.lineWidth = 3;

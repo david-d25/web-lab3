@@ -1,12 +1,14 @@
 package ru.david.web2.beans;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.NoneScoped;
 
 @ManagedBean
+@NoneScoped
 public class Result {
-    public double x, y, r;
-    public boolean hit;
-    public long timestamp;
+    private double x, y, r;
+    private boolean hit;
+    private long timestamp;
 
     public double getX() {
         return x;
@@ -46,5 +48,16 @@ public class Result {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public String timeFriendly(long millis) {
+        long delta = System.currentTimeMillis() - millis;
+        if (delta < 1000)
+            return "Только что";
+        if (delta < 1000*60)
+            return delta/1000 + " сек. назад";
+        if (delta < 1000*60*60)
+            return delta/1000/60 + " мин. назад";
+        return delta/1000/60/60 + " часов назад";
     }
 }
