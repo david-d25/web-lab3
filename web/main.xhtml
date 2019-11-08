@@ -37,12 +37,40 @@
         <div class="container">
             <div class="graph-view-wr">
                 <p:panel styleClass="panel">
-                    <div id="canvas-wrapper"></div>
+                    <div id="canvas-wrapper">
+                        <c:forEach var="result" items="#{results.getResults()}">
+                            <div data-x="#{result.x}" data-y="#{result.y}" data-hit="#{result.hit}"></div>
+                        </c:forEach>
+                    </div>
                 </p:panel>
+
+                <div class="panel">
+                    <div class="panel__title">Предыдущие 100 результатов</div>
+                    <div class="panel__content">
+                        <table class="results">
+                            <tr>
+                                <th>X</th>
+                                <th>Y</th>
+                                <th>R</th>
+                                <th>Попадание</th>
+                                <th>Время</th>
+                            </tr>
+                            <c:forEach var="result" items="#{results.getResults()}">
+                                <tr>
+                                    <td>#{result.x}</td>
+                                    <td>#{result.y}</td>
+                                    <td>#{result.r}</td>
+                                    <td>#{result.hit ? "Даааа" : "Нит"}</td>
+                                    <td>#{result.timeFriendly(result.timestamp)}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <div class="controls">
-                <h:form>
+                <h:form id="form">
                     <p:panel styleClass="panel flex-column-inner">
                         <label class="panel__title">Координата X</label>
                         <p:selectBooleanCheckbox itemLabel="-5" onchange="this.checked ? selectedX(-5) : deselectedX(-5)"/>
@@ -84,31 +112,6 @@
                                         onclick="return onSubmit();"
                                         action="#{form.process}"/>
                 </h:form>
-            </div>
-        </div>
-        <div class="container">
-            <div class="panel">
-                <div class="panel__title">Предыдущие 100 результатов</div>
-                <div class="panel__content">
-                    <table class="results">
-                        <tr>
-                            <th>X</th>
-                            <th>Y</th>
-                            <th>R</th>
-                            <th>Попадание</th>
-                            <th>Время</th>
-                        </tr>
-                        <c:forEach var="result" items="#{results.getResults()}">
-                            <tr>
-                                <td>#{result.x}</td>
-                                <td>#{result.y}</td>
-                                <td>#{result.r}</td>
-                                <td>#{result.hit ? "Даааа" : "Нит"}</td>
-                                <td>#{result.timeFriendly(result.timestamp)}</td>
-                            </tr>
-                        </c:forEach>
-                    </table>
-                </div>
             </div>
         </div>
     </div>

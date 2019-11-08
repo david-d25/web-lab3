@@ -1,8 +1,22 @@
 (function () {
+  "use strict";
+
   window.GraphPicker = function(wrapper, width, height) {
     let canvas = document.createElement("canvas");
     canvas.setAttribute("width", width);
     canvas.setAttribute("height", height);
+
+    let oldPoints = [];
+    let oldPointEls = wrapper.querySelectorAll("*");
+    for (let i = 0; i < oldPointEls.length; i++) {
+      let x = oldPointEls[i].getAttribute("data-x");
+      let y = oldPointEls[i].getAttribute("data-y");
+      let hit = oldPointEls[i].getAttribute("data-hit");
+
+      oldPoints.push({x, y, hit: hit === "true"});
+    }
+    wrapper.innerHTML = "";
+
     wrapper.append(canvas);
 
     let scale = null;
@@ -113,6 +127,17 @@
       ctx.txt(scale ? scale : "R", .52, .1);
       ctx.txt("y", .52, .03);
       ctx.stroke();
+
+      if (scale) {
+        for (let i = 0; i < oldPoints.length; i++) {
+          let current = oldPoints[i];
+          ctx.fillStyle = current.hit ? "green" : "red";
+          let {x, y} = graphToNormalizedCoords(current);
+          ctx.beginPath();
+          ctx.arc(x*width, y*height, .005*(width+height)/2, 0, 2*Math.PI);
+          ctx.fill();
+        }
+      }
 
       if (pointer) {
         ctx.fillStyle = "#aa0000";

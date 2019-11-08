@@ -5,9 +5,9 @@
 
   let canvasWrapper = document.getElementById("canvas-wrapper");
 
-  let yInput = document.getElementById("j_idt14:y");
-  let xHidden = document.getElementById("j_idt14:x-hidden");
-  let submitButton = document.getElementById("j_idt14:submit-btn");
+  let yInput = document.getElementById("form:y");
+  let xHidden = document.getElementById("form:x-hidden");
+  let submitButton = document.getElementById("form:submit-btn");
 
   let errMsgPanel = document.getElementById('err-msg');
   let graphPicker = new GraphPicker(canvasWrapper, 1000, 1000);
@@ -90,7 +90,7 @@
 
   function checkX() {
     let value = xHidden.value.trim();
-    if (value.length === 0 || selectedXs.length === 0)
+    if (value.length === 0)
       return setErrorMsg("Следует выбрать X");
     if (selectedXs.length > 1)
       return setErrorMsg("Выберите один X");

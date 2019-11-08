@@ -40,7 +40,7 @@ public class Results {
 
             connection.createStatement().execute(
                     "create table if not exists results (" +
-                            "x real, y real, r real, hit boolean, timestamp timestamp)"
+                            "x numeric(5, 3), y numeric(5, 3), r numeric(5, 3), hit boolean, timestamp timestamp)"
             );
         } catch (SQLException e) {
             throw new IllegalStateException("Could not create connection!!!", e);
