@@ -24,7 +24,7 @@
     </context-param>
     <context-param>
         <param-name>jdbc-host</param-name>
-        <param-value>localhost</param-value>
+        <param-value>pg</param-value>
     </context-param>
     <context-param>
         <param-name>jdbc-port</param-name>

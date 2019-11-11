@@ -1,17 +1,28 @@
 package ru.david.web2.beans;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.io.IOException;
 import java.sql.SQLException;
 
 @ManagedBean
 @RequestScoped
 public class Form {
+    @NotNull(message = "X пуст")
     private Float x;
+
+    @NotNull(message = "Y пуст")
+    @Min(value=-3, message = "Y должен быть больше, чем -3")
+    @Max(value = 5, message = "Y должен быть меньше, чем 5")
     private Float y;
+
+    @NotNull(message = "R пуст")
     private Float r;
 
     @ManagedProperty("#{results}")
@@ -50,12 +61,6 @@ public class Form {
     }
 
     public void process() throws SQLException, IOException {
-        if (x == null)
-            throw new IllegalStateException("X is null");
-        if (y == null)
-            throw new IllegalStateException("Y is null");
-        if (r == null)
-            throw new IllegalStateException("R is null");
         Result result = new Result();
         result.setX(x);
         result.setY(y);
