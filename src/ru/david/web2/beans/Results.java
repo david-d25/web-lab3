@@ -4,6 +4,9 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,14 @@ public class Results {
         } catch (ClassNotFoundException e) {
             throw new IllegalStateException("Can't find driver!!!", e);
         }
+
+//        try {
+//            InitialContext context = new InitialContext();
+//            DataSource ds = (DataSource) context.lookup("java:/PostgresDS");
+//            connection = ds.getConnection();
+//        } catch (SQLException | NamingException e) {
+//            throw new IllegalStateException("Could not create connection!!!", e);
+//        }
 
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         String jdbcProtocolName = context.getInitParameter("jdbc-protocol-name");
