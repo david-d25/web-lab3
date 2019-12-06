@@ -2,8 +2,6 @@ package ru.david.web2.beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
@@ -14,6 +12,8 @@ import java.util.List;
 @ManagedBean
 @SessionScoped
 public class Results {
+    private DataSource dataSource;
+
     private Connection connection;
 
     public Results() {
@@ -21,40 +21,22 @@ public class Results {
     }
 
     private void initConnection() {
+
         try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
-            throw new IllegalStateException("Can't find driver!!!", e);
+            InitialContext context = new InitialContext();
+            dataSource = (DataSource) context.lookup("java:/PostgresDS");
+        } catch (NamingException e) {
+            throw new IllegalStateException("Could not create connection!!!", e);
         }
 
-//        try {
-//            InitialContext context = new InitialContext();
-//            DataSource ds = (DataSource) context.lookup("java:/PostgresDS");
-//            connection = ds.getConnection();
-//        } catch (SQLException | NamingException e) {
-//            throw new IllegalStateException("Could not create connection!!!", e);
-//        }
-
-        ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
-        String jdbcProtocolName = context.getInitParameter("jdbc-protocol-name");
-        String jdbcHost = context.getInitParameter("jdbc-host");
-        String jdbcPort = context.getInitParameter("jdbc-port");
-        String jdbcDatabase = context.getInitParameter("jdbc-database");
-        String jdbcUser = context.getInitParameter("jdbc-user");
-        String jdbcPassword = context.getInitParameter("jdbc-password");
-
         try {
-            connection = DriverManager.getConnection(
-                    "jdbc:" + jdbcProtocolName + "://" + jdbcHost + ":" + jdbcPort + "/" + jdbcDatabase,
-                    jdbcUser, jdbcPassword
-            );
-
+            connection = dataSource.getConnection();
             connection.createStatement().execute(
                     "create table if not exists results (" +
                             "x numeric(5, 3), y numeric(5, 3), r numeric(5, 3), hit boolean, timestamp timestamp)"
             );
         } catch (SQLException e) {
-            throw new IllegalStateException("Could not create connection!!!", e);
+                        throw new IllegalStateException("Could not create connection!!!", e);
         }
     }
 
@@ -87,5 +69,13 @@ public class Results {
             result.add(current);
         }
         return result;
+    }
+
+    public DataSource getDataSource() {
+        return dataSource;
+    }
+
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
 }
