@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class Form {
     @NotNull(message = "X пуст")
     private Float x;

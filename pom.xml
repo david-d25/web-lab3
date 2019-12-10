@@ -13,7 +13,7 @@
 
         <wildfly-home>C:\Wildfly\wildfly-18.0.0.Final</wildfly-home>
         <wildfly-hostname>127.0.0.1</wildfly-hostname>
-        <wildfly-port>9990</wildfly-port>
+        <wildfly-port>26390</wildfly-port>
         <wildfly-username>david</wildfly-username>
         <wildfly-password>admin</wildfly-password>
     </properties>
