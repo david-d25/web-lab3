@@ -1,5 +1,8 @@
 package ru.david.web2.beans;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+import javax.faces.application.ResourceDependency;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.naming.InitialContext;
@@ -12,22 +15,17 @@ import java.util.List;
 @ManagedBean
 @SessionScoped
 public class Results {
+    @Resource(lookup = "java:/PostgresDS", type = DataSource.class)
     private DataSource dataSource;
 
     private Connection connection;
 
-    public Results() {
+    @PostConstruct
+    public void init() {
         initConnection();
     }
 
     private void initConnection() {
-
-        try {
-            InitialContext context = new InitialContext();
-            dataSource = (DataSource) context.lookup("java:/PostgresDS");
-        } catch (NamingException e) {
-            throw new IllegalStateException("Could not create connection!!!", e);
-        }
 
         try {
             connection = dataSource.getConnection();
